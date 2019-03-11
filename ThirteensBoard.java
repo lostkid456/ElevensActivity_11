@@ -154,7 +154,12 @@ public class ThirteensBoard extends Board {
 	 * @return true if an 13-pair play was found (and made); false othewise.
 	 */
 	private boolean playPairSum13IfPossible() {
-
+		List<Integer>list=cardIndexes();
+		findPairSum13(list);
+		if(list.size()==2){
+			replaceSelectedCards(list);
+			return true;
+		}
 		return false; // REPLACE !
 	}
 
@@ -165,6 +170,12 @@ public class ThirteensBoard extends Board {
 	 * @return true if a king play was found (and made); false othewise.
 	 */
 	private boolean playKingIfPossible() {
+		List<Integer>list=cardIndexes();
+		findKing(list);
+		if(list.size()==1){
+			replaceSelectedCards(list);
+			return true;
+		}
 		return false; // REPLACE !
 	}
 }
